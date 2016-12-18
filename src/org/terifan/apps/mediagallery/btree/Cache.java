@@ -25,7 +25,7 @@ import java.util.Set;
  * @param <V>
  *   the value type used by this cache
  */
-class Cache<K,V> implements Iterable<K>
+public class Cache<K,V> implements Iterable<K>
 {
 	private long mCapacity;
 	private long mUsedSize;
