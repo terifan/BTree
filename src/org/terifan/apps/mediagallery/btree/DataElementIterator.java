@@ -6,7 +6,7 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 
-class DataElementIterator implements Iterator<DataElement>, Iterable<DataElement>
+public class DataElementIterator implements Iterator<DataElement>, Iterable<DataElement>
 {
 	private long mNextDataPageIndex;
 	private ArrayList<DataElement> mDataElements;

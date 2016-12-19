@@ -67,17 +67,6 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized boolean put(String aKey, byte [] aContent) throws IOException, TreeIntegrityException
-	{
-		if (mTransactionLog == null)
-		{
-			throw new IllegalStateException("Tree is closed.");
-		}
-
-		return putImpl(toByteArray(aKey), aContent);
-	}
-
-
 	public synchronized int get(byte [] aKey, byte [] aContent) throws IOException, TreeIntegrityException
 	{
 		if (mTransactionLog == null)
@@ -86,17 +75,6 @@ public class BTree implements Iterable<DataElement>
 		}
 
 		return getImpl(aKey, aContent);
-	}
-
-
-	public synchronized int get(String aKey, byte [] aContent) throws IOException, TreeIntegrityException
-	{
-		if (mTransactionLog == null)
-		{
-			throw new IllegalStateException("Tree is closed.");
-		}
-
-		return getImpl(toByteArray(aKey), aContent);
 	}
 
 
@@ -111,17 +89,6 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized boolean containsKey(String aKey) throws IOException, TreeIntegrityException
-	{
-		if (mTransactionLog == null)
-		{
-			throw new IllegalStateException("Tree is closed.");
-		}
-
-		return containsKeyImpl(toByteArray(aKey));
-	}
-
-
 	public synchronized boolean remove(byte [] aKey) throws IOException, TreeIntegrityException
 	{
 		if (mTransactionLog == null)
@@ -133,17 +100,6 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized boolean remove(String aKey) throws IOException, TreeIntegrityException
-	{
-		if (mTransactionLog == null)
-		{
-			throw new IllegalStateException("Tree is closed.");
-		}
-
-		return removeImpl(toByteArray(aKey));
-	}
-
-
 	public synchronized int length(byte [] aKey) throws IOException, TreeIntegrityException
 	{
 		if (mTransactionLog == null)
@@ -152,17 +108,6 @@ public class BTree implements Iterable<DataElement>
 		}
 
 		return getImpl(aKey, null);
-	}
-
-
-	public synchronized int length(String aKey) throws IOException, TreeIntegrityException
-	{
-		if (mTransactionLog == null)
-		{
-			throw new IllegalStateException("Tree is closed.");
-		}
-
-		return getImpl(toByteArray(aKey), null);
 	}
 
 
@@ -359,7 +304,7 @@ public class BTree implements Iterable<DataElement>
 		{
 			throw new IllegalStateException("Page is null!");
 		}
-		
+
 		return new DataElementIterator(this, page.getPageIndex(), aPrefix);
 	}
 
@@ -653,20 +598,5 @@ public class BTree implements Iterable<DataElement>
 	protected long getHeaderSize()
 	{
 		return mHeaderSize;
-	}
-
-
-	@Override
-	protected void finalize() throws Throwable
-	{
-		try
-		{
-			close();
-		}
-		catch (Throwable e)
-		{
-		}
-
-		super.finalize();
 	}
 }
