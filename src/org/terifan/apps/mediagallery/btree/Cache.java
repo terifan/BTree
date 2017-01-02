@@ -25,7 +25,7 @@ import java.util.Set;
  * @param <V>
  *   the value type used by this cache
  */
-public class Cache<K,V> implements Iterable<K>
+class Cache<K,V> implements Iterable<K>
 {
 	private long mCapacity;
 	private long mUsedSize;
@@ -72,54 +72,6 @@ public class Cache<K,V> implements Iterable<K>
 	{
 		mExpireTime = aExpireTime;
 	}
-
-
-//	/**
-//	 * Gets the CacheBackend for this Cache.
-//	 *
-//	 * @return
-//	 *   the CacheBackend or null if none exists
-//	 */
-//	public CacheBackend<K,V> getCacheBackend()
-//	{
-//		return mCacheBackend;
-//	}
-//
-//
-//	/**
-//	 * Sets the CacheBackend for this Cache.
-//	 *
-//	 * @param aCacheBackend
-//	 *   the CacheBackend or null
-//	 */
-//	public void setCacheBackend(CacheBackend<K,V> aCacheBackend)
-//	{
-//		mCacheBackend = aCacheBackend;
-//	}
-
-
-//	/**
-//	 * Adds a CacheStateListener to this cache.
-//	 *
-//	 * @param aCacheStateListener
-//	 *   the listener instance.
-//	 */
-//	public void addCacheStateListener(CacheStateListener<K,V> aCacheStateListener)
-//	{
-//		mListeners.add(aCacheStateListener);
-//	}
-//
-//
-//	/**
-//	 * Removes a CacheStateListener from this cache.
-//	 *
-//	 * @param aCacheStateListener
-//	 *   the listener instance.
-//	 */
-//	public void removeCacheStateListener(CacheStateListener<K,V> aCacheStateListener)
-//	{
-//		mListeners.remove(aCacheStateListener);
-//	}
 
 
 	/**

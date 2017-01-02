@@ -56,7 +56,7 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized boolean put(byte [] aKey, byte [] aContent) throws IOException, TreeIntegrityException
+	public boolean put(byte [] aKey, byte [] aContent) throws IOException, TreeIntegrityException
 	{
 		if (mTransactionLog == null)
 		{
@@ -67,7 +67,7 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized int get(byte [] aKey, byte [] aContent) throws IOException, TreeIntegrityException
+	public int get(byte [] aKey, byte [] aContent) throws IOException, TreeIntegrityException
 	{
 		if (mTransactionLog == null)
 		{
@@ -78,7 +78,7 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized boolean containsKey(byte [] aKey) throws IOException, TreeIntegrityException
+	public boolean containsKey(byte [] aKey) throws IOException, TreeIntegrityException
 	{
 		if (mTransactionLog == null)
 		{
@@ -89,7 +89,7 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized boolean remove(byte [] aKey) throws IOException, TreeIntegrityException
+	public boolean remove(byte [] aKey) throws IOException, TreeIntegrityException
 	{
 		if (mTransactionLog == null)
 		{
@@ -100,7 +100,7 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized int length(byte [] aKey) throws IOException, TreeIntegrityException
+	public int length(byte [] aKey) throws IOException, TreeIntegrityException
 	{
 		if (mTransactionLog == null)
 		{
@@ -111,7 +111,7 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized void close() throws IOException
+	public void close() throws IOException
 	{
 		if (mTransactionLog != null)
 		{
@@ -121,7 +121,7 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized void startTransaction() throws IOException
+	public void startTransaction() throws IOException
 	{
 		if (mTransactionLog == null)
 		{
@@ -137,7 +137,7 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized void commitTransaction() throws IOException
+	public void commitTransaction() throws IOException
 	{
 		if (mTransactionLog == null)
 		{
@@ -153,7 +153,7 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized void abortTransaction() throws IOException
+	public void abortTransaction() throws IOException
 	{
 		if (mTransactionLog == null)
 		{
@@ -169,7 +169,7 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized long putBlob(byte [] aContent, int aLength) throws IOException, TreeIntegrityException
+	public long putBlob(byte [] aContent, int aLength) throws IOException, TreeIntegrityException
 	{
 		if (mTransactionLog == null)
 		{
@@ -201,7 +201,7 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized void getBlob(byte [] aContent, long aPageIndex, int aLength) throws IOException, TreeIntegrityException
+	public void getBlob(byte [] aContent, long aPageIndex, int aLength) throws IOException, TreeIntegrityException
 	{
 		if (mTransactionLog == null)
 		{
@@ -217,7 +217,7 @@ public class BTree implements Iterable<DataElement>
 
 
 	@Override
-	public synchronized DataElementIterator iterator()
+	public DataElementIterator iterator()
 	{
 		if (mTransactionLog == null)
 		{
@@ -247,7 +247,7 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized DataElementIterator iterator(byte [] aPrefix)
+	public DataElementIterator iterator(byte [] aPrefix)
 	{
 		if (mTransactionLog == null)
 		{
@@ -309,7 +309,7 @@ public class BTree implements Iterable<DataElement>
 	}
 
 
-	public synchronized void populateJTree(DefaultMutableTreeNode aJTreeNode) throws IOException, TreeIntegrityException
+	public void populateJTree(DefaultMutableTreeNode aJTreeNode) throws IOException, TreeIntegrityException
 	{
 		if (mTransactionLog == null)
 		{
