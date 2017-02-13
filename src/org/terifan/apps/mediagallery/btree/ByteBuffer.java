@@ -963,13 +963,13 @@ class ByteBuffer
 					count += 2;
 					if (count > utflen)
 					{
-						throw new RuntimeException(
+						throw new IllegalStateException(
 								"malformed input: partial character at end");
 					}
 					char2 = (int) bytearr[count - 1];
 					if ((char2 & 0xC0) != 0x80)
 					{
-						throw new RuntimeException(
+						throw new IllegalStateException(
 								"malformed input around byte " + count);
 					}
 					chararr[chararr_count++] = (char) (((c & 0x1F) << 6)
@@ -980,14 +980,14 @@ class ByteBuffer
 					count += 3;
 					if (count > utflen)
 					{
-						throw new RuntimeException(
+						throw new IllegalStateException(
 								"malformed input: partial character at end");
 					}
 					char2 = (int) bytearr[count - 2];
 					char3 = (int) bytearr[count - 1];
 					if (((char2 & 0xC0) != 0x80) || ((char3 & 0xC0) != 0x80))
 					{
-						throw new RuntimeException(
+						throw new IllegalStateException(
 								"malformed input around byte " + (count - 1));
 					}
 					chararr[chararr_count++] = (char) (((c & 0x0F) << 12)
@@ -996,7 +996,7 @@ class ByteBuffer
 					break;
 				default:
 					/* 10xx xxxx,  1111 xxxx */
-					throw new RuntimeException(
+					throw new IllegalStateException(
 							"malformed input around byte " + count);
 			}
 		}

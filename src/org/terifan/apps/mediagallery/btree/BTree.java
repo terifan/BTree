@@ -47,7 +47,7 @@ public class BTree implements Iterable<DataElement>
 				}
 				catch (IOException e)
 				{
-					throw new RuntimeException(e);
+					throw new IllegalStateException(e);
 				}
 			}
 		};
@@ -240,7 +240,7 @@ public class BTree implements Iterable<DataElement>
 		}
 		catch (TreeIntegrityException | IOException e)
 		{
-			throw new RuntimeException(e);
+			throw new IllegalStateException(e);
 		}
 
 		return new DataElementIterator(this, page.getPageIndex());
@@ -297,7 +297,7 @@ public class BTree implements Iterable<DataElement>
 		}
 		catch (TreeIntegrityException | IOException e)
 		{
-			throw new RuntimeException(e);
+			throw new IllegalStateException(e);
 		}
 
 		if (page == null)
@@ -368,7 +368,7 @@ public class BTree implements Iterable<DataElement>
 		catch (Throwable e)
 		{
 			mTransactionLog.abort();
-			throw new RuntimeException(e);
+			throw new IllegalStateException(e);
 		}
 	}
 
@@ -445,7 +445,7 @@ public class BTree implements Iterable<DataElement>
 		catch (Throwable e)
 		{
 			mTransactionLog.abort();
-			throw new RuntimeException(e);
+			throw new IllegalStateException(e);
 		}
 	}
 
@@ -573,7 +573,7 @@ public class BTree implements Iterable<DataElement>
 		}
 		catch (UnsupportedEncodingException e)
 		{
-			throw new RuntimeException(e);
+			throw new IllegalStateException(e);
 		}
 	}
 

@@ -42,7 +42,7 @@ abstract class Page
 	{
 		if (mPageIndex == -1)
 		{
-			throw new RuntimeException("Page has no index.");
+			throw new IllegalStateException("Page has no index.");
 		}
 		return mPageIndex;
 	}

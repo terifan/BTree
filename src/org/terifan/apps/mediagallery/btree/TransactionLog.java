@@ -124,11 +124,11 @@ class TransactionLog
 	{
 		if (mPages.size() > 0)
 		{
-			throw new RuntimeException("Uncommmited data exists.");
+			throw new IllegalStateException("Uncommmited data exists.");
 		}
 		if ((aLength % mPageStore.getPageSize()) != 0)
 		{
-			throw new RuntimeException("Data must fill one or more pages completly: aLength: " + aLength);
+			throw new IllegalStateException("Data must fill one or more pages completly: aLength: " + aLength);
 		}
 
 		mPageStore.write(aIndex, aBuffer, aOffset, aLength);

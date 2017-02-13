@@ -65,7 +65,7 @@ class IndexPage extends Page
 			}
 		}
 
-		throw new RuntimeException();
+		throw new IllegalStateException();
 	}
 
 
@@ -261,13 +261,13 @@ if(BTree.DEBUG)
 
 			if (neighborPage == null)
 			{
-				throw new RuntimeException("neighbor == null");
+				throw new IllegalStateException("neighbor == null");
 			}
 		}
 
 if(BTree.DEBUG)
 {
-	throw new RuntimeException("debug"+mPageIndex+", "+neighborPage.getUsedSpace());
+	throw new IllegalStateException("debug"+mPageIndex+", "+neighborPage.getUsedSpace());
 }
 
 		if (neighborPage.mElements.size() > 1 && neighborPage.getUsedSpace() > mTree.getPageSize()/2) // shift elements from neighbor
@@ -305,7 +305,7 @@ if(BTree.DEBUG)
 				{
 					if (insertElement(neighborPage.mElements.remove(i)))
 					{
-						throw new RuntimeException();
+						throw new IllegalStateException();
 					}
 				}
 
@@ -316,7 +316,7 @@ if(BTree.DEBUG)
 				int i = aParent.indexOf(mPageIndex);
 				if (i == -1)
 				{
-					throw new RuntimeException();
+					throw new IllegalStateException();
 				}
 				aParent.mElements.remove(i);
 				aParent.write();
@@ -333,7 +333,7 @@ if(BTree.DEBUG)
 						break;
 					}
 				}
-				if(b)throw new RuntimeException();*/
+				if(b)throw new IllegalStateException();*/
 			}
 			else
 			{
@@ -368,7 +368,7 @@ if(BTree.DEBUG)
 				{
 					if (insertElement(neighborPage.mElements.remove(i)))
 					{
-						throw new RuntimeException();
+						throw new IllegalStateException();
 					}
 				}
 
@@ -380,7 +380,7 @@ if(BTree.DEBUG)
 				int i = aParent.indexOf(neighborPage.mPageIndex);
 				if (i == -1)
 				{
-					throw new RuntimeException();
+					throw new IllegalStateException();
 				}
 
 				aParent.mElements.remove(i);
@@ -398,7 +398,7 @@ if(BTree.DEBUG)
 						break;
 					}
 				}
-				if(b)throw new RuntimeException();*/
+				if(b)throw new IllegalStateException();*/
 			}
 
 			return 1;
@@ -422,14 +422,14 @@ if(BTree.DEBUG)
 
 			if (neighborPage.insertElement(new IndexElement(key, mFirstPageIndex)))
 			{
-				throw new RuntimeException();
+				throw new IllegalStateException();
 			}
 
 			for (int i = 0; i < mElements.size(); i++)
 			{
 				if (neighborPage.insertElement(mElements.get(i)))
 				{
-					throw new RuntimeException();
+					throw new IllegalStateException();
 				}
 			}
 
@@ -452,14 +452,14 @@ if(BTree.DEBUG)
 
 			if (insertElement(new IndexElement(key, neighborPage.mFirstPageIndex)))
 			{
-				throw new RuntimeException();
+				throw new IllegalStateException();
 			}
 
 			for (int i = 0; i < neighborPage.mElements.size(); i++)
 			{
 				if (insertElement(neighborPage.mElements.get(i)))
 				{
-					throw new RuntimeException();
+					throw new IllegalStateException();
 				}
 			}
 
@@ -513,7 +513,7 @@ if(BTree.DEBUG)
 
 if (middle == 0)
 {
-	throw new RuntimeException("middle == 0");
+	throw new IllegalStateException("middle == 0");
 }
 
 			if (getPageIndex() == 0) // split root page
@@ -530,7 +530,7 @@ if (middle == 0)
 				{
 					if (leftPage.insertElement(mElements.get(i)))
 					{
-						throw new RuntimeException();
+						throw new IllegalStateException();
 					}
 				}
 
@@ -538,7 +538,7 @@ if (middle == 0)
 				{
 					if (rightPage.insertElement(mElements.get(i)))
 					{
-						throw new RuntimeException();
+						throw new IllegalStateException();
 					}
 				}
 
@@ -562,7 +562,7 @@ if (middle == 0)
 					IndexElement element = mElements.get(i);
 					if (newPage.insertElement(element))
 					{
-						throw new RuntimeException();
+						throw new IllegalStateException();
 					}
 					mElements.remove(i);
 				}
@@ -602,7 +602,7 @@ if (middle == 0)
 			}
 		}
 
-		throw new RuntimeException(""+aIndexElement);
+		throw new IllegalStateException(""+aIndexElement);
 	}
 
 

@@ -195,7 +195,7 @@ class DataPage extends Page
 
 					if (totalSize != checkSize)
 					{
-						throw new RuntimeException();
+						throw new IllegalStateException();
 					}
 				}
 
@@ -261,9 +261,9 @@ for(DataElement e : l)
 ss+=e.size();
 sss+=e.size();
 }
-if(sss>mTree.getPageSize()) throw new RuntimeException("sss>mTree.getPageSize(): "+sss);
+if(sss>mTree.getPageSize()) throw new IllegalStateException("sss>mTree.getPageSize(): "+sss);
 }
-if(ss!=mUsedSize) throw new RuntimeException("ss!=mUsedSize: "+ss);
+if(ss!=mUsedSize) throw new IllegalStateException("ss!=mUsedSize: "+ss);
 
 
 				long rightLink = mNextDataPageIndex;

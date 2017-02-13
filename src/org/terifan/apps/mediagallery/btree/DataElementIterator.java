@@ -63,7 +63,7 @@ public class DataElementIterator implements Iterator<DataElement>, Iterable<Data
 		}
 		catch (TreeIntegrityException | IOException e)
 		{
-			throw new RuntimeException(e);
+			throw new IllegalStateException(e);
 		}
 	}
 
@@ -109,7 +109,7 @@ public class DataElementIterator implements Iterator<DataElement>, Iterable<Data
 		}
 		catch (TreeIntegrityException | IOException e)
 		{
-			throw new RuntimeException(e);
+			throw new IllegalStateException(e);
 		}
 
 		return !mDataElements.isEmpty();
